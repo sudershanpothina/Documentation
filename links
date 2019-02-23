@@ -1,3 +1,5 @@
 https://github.com/quickfixtech
 https://www.mirantis.com/blog/how-install-kubernetes-kubeadm/
+kubectl apply --filename https://git.io/weave-kube-1.6
 http://docs.shippable.com/deploy/tutorial/create-kubeconfig-for-self-hosted-kubernetes-cluster/
+
