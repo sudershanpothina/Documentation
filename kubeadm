@@ -29,6 +29,8 @@ apt-get install -y kubelet kubeadm kubectl
 swapoff -a
 sudo kubeadm init --pod-network-cidr=192.168.0.0/16
 Note: If 192.168.0.0/16 is already in use within your network you must select a different pod network CIDR, replacing 192.168.0.0/16 in the above command as well as in any manifests applied below.
-kubectl apply --filename https://git.io/weave-kube-1.6
 
+kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
 
+test on master node
+kubectl taint nodes --all node-role.kubernetes.io/master-
