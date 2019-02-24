@@ -1,4 +1,8 @@
+
+Follow everything in the list below - but install weave for networking
 https://www.mirantis.com/blog/how-install-kubernetes-kubeadm/
+
+
 swapoff -a
 vi /etc/fstab
 
@@ -13,6 +17,20 @@ vi /etc/fstab
 UUID=1d343a19-bd75-47a6-899d-7c8bc93e28ff /            ext4 errors=remount-ro 0    1
 # swap was on /dev/sda5 during installation
 #UUID=d0200036-b211-4e6e-a194-ac2e51dfb27d none         swap sw           0    0
+
+Now configure iptables to receive bridged network traffic. First edit the sysctl.conf file:
+vi /etc/ufw/sysctl.conf
+And add the following lines to the end:
+
+net/bridge/bridge-nf-call-ip6tables = 1
+net/bridge/bridge-nf-call-iptables = 1
+net/bridge/bridge-nf-call-arptables = 1
+Reboot so the changes take effect.
+Install ebtables and ethtool:
+sudo su
+apt-get install ebtables ethtool
+Reboot once more.
+
 
 apt-get update
 apt-get install -y docker.io
