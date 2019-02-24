@@ -29,3 +29,5 @@ apt-get install -y kubelet kubeadm kubectl
 swapoff -a
 kubeadm init
 kubectl apply --filename https://git.io/weave-kube-1.6
+
+
