@@ -1,0 +1,48 @@
+Create an app use studio
+Delete an app goto System Applications > My Company Applications. Not in studio. Select the app and in the form view click delete
+
+Create table
+Create Module (Give the table name to appear in Menu)
+
+Client script
+https://api.ipify.org - get only public ip
+to look at logs goto developer tools and check console
+alert(g_form.getValue('short_description'));
+
+function onLoad() {
+   //Type appropriate comment here, and begin script below
+   alert("Thank you for loading the NeedIt form.   When you close this alert you will be able to interact with the form.");
+	var request = new XMLHttpRequest();
+// 	request.open('GET', 'https://ghibliapi.herokuapp.com/films', false);
+// 	request.open('GET', 'https://api.ipify.org',false);
+	request.open("GET", 'http://admin:1fdad1442b1037a8223d754034be9a7e@ec2-35-175-217-84.compute-1.amazonaws.com:8080/job/test/build?token=test');
+	request.send();
+	alert(request.status + ". \nRequest sent to Jenkins server. Name on the request: " + g_user.firstName + request.response);
+	jslog("This is the log -----------" + request.response);
+}
+
+
+
+function callRestApi() {
+	var request = new XMLHttpRequest();
+	request.open('GET', 'https://ghibliapi.herokuapp.com/films', false);
+	request.send();
+	alert(request.status + ". \nRequest sent to Jenkins server. Name on the request: " + g_user.firstName);
+	jslog("This is the log -----------" + request.response);
+}
+
+// business rule
+
+(function executeRule(current, previous /*null when async*/) {
+
+	// Add your code here
+	gs.addInfoMessage("this is a test message 1 ");
+	var request = new XMLHttpRequest();
+	gs.addInfoMessage("this is a test message 2 ");
+	request.open('GET', 'https://ghibliapi.herokuapp.com/films', false);
+	request.send();
+	jslog("This is the log -----------" + request.response);
+	gs.addInfoMessage("Response code " + request.status);
+	gs.addInfoMessage("this is a test message 2 ");
+
+})(current, previous);
