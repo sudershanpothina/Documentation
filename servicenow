@@ -36,7 +36,7 @@ function callRestApi() {
 }
 
 // business rule
-
+logs are at Systemlog > application log (gs.*)
 (function executeRule(current, previous /*null when async*/) {
 
 	// Add your code here
