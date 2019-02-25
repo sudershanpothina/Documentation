@@ -4,6 +4,10 @@ Delete an app goto System Applications > My Company Applications. Not in studio.
 Create table
 Create Module (Give the table name to appear in Menu)
 
+apt-get update
+sudo apt-get install openjdk-8-jre
+sudo apt-get install openjdk-8-jdk
+
 Client script
 https://api.ipify.org - get only public ip
 to look at logs goto developer tools and check console
@@ -15,7 +19,7 @@ function onLoad() {
 	var request = new XMLHttpRequest();
 // 	request.open('GET', 'https://ghibliapi.herokuapp.com/films', false);
 // 	request.open('GET', 'https://api.ipify.org',false);
-	request.open("GET", 'http://admin:1fdad1442b1037a8223d754034be9a7e@ec2-35-175-217-84.compute-1.amazonaws.com:8080/job/test/build?token=test');
+	request.open("GET", 'http://admin:1128f35cecf9dd9f508aa20cf2a3fc69fe@ec2-18-208-173-120.compute-1.amazonaws.com:8080/job/test/build?token=test');
 	request.send();
 	alert(request.status + ". \nRequest sent to Jenkins server. Name on the request: " + g_user.firstName + request.response);
 	jslog("This is the log -----------" + request.response);
