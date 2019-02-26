@@ -52,3 +52,6 @@ kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl versio
 
 test on master node
 kubectl taint nodes --all node-role.kubernetes.io/master-
+
+# to restart kubelet automatically after machine restart
+systemctl enable kubelet 
