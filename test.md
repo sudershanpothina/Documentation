@@ -1,3 +1,3 @@
 # this is the test file
 ### this is a next test line
-![Screenshot] (testImage.png)
+![Screenshot] (https://github.com/sudershanpothina/Documentation/blob/master/testImage.png)
