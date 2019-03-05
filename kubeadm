@@ -55,3 +55,6 @@ kubectl taint nodes --all node-role.kubernetes.io/master-
 
 # to restart kubelet automatically after machine restart
 systemctl enable kubelet 
+
+# if token expired
+kubeadm token create
