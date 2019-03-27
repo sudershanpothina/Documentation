@@ -65,3 +65,8 @@ iptables -F && iptables -t nat -F && iptables -t mangle -F && iptables -X
 
 
 https://pastebin.com/17NP7ywx
+kubeadm reset
+sudo apt-get purge kubeadm kubectl kubelet kubernetes-cni kube*   
+sudo apt-get autoremove  
+sudo rm -rf ~/.kube
+
