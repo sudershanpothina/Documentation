@@ -43,9 +43,9 @@ deb http://apt.kubernetes.io/ kubernetes-xenial main
 EOF
 
 apt-get update
-apt-get install -y kubelet kubeadm kubectl
+sudo apt-get install -qy kubelet=1.14.0-00 kubectl=1.14.0-00 kubeadm=1.14.0-00
 swapoff -a
-sudo kubeadm init --pod-network-cidr=192.168.0.0/16
+sudo kubeadm init --pod-network-cidr=192.168.0.0/16 # works without cidr
 Note: If 192.168.0.0/16 is already in use within your network you must select a different pod network CIDR, replacing 192.168.0.0/16 in the above command as well as in any manifests applied below.
 Note: this is ok [WARNING IsDockerSystemdCheck]: detected "cgroupfs" as the Docker cgroup driver. The recommended driver is "systemd". Please follow the guide at https://kubernetes.io/docs/setup/cri/
 
