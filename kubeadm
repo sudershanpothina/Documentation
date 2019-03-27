@@ -62,3 +62,6 @@ kubeadm token create
 # reset kubeadm 
 echo y | kubeadm reset
 iptables -F && iptables -t nat -F && iptables -t mangle -F && iptables -X
+
+
+https://pastebin.com/17NP7ywx
