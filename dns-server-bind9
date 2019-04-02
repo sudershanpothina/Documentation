@@ -1,1 +1,2 @@
 https://www.itzgeek.com/how-tos/linux/ubuntu-how-tos/how-to-configure-dns-server-on-ubuntu-18-04.html
+Forward DNS lookup is used to convert the domain name to an IP address format, however reverse DNS lookup works in reverse way to convert IP address to domain name.
