@@ -17,3 +17,18 @@ ex -
 port: 2030
 hostname: test
 ```
+
+
+Place arguments in multiple lines
+```
+- name: Add user details
+  user: >
+    name={{ user_name }}
+    password={{ user_pass }}
+    shell=/bin/bash
+    groups=sudo
+    append=yes
+    generate_ssh_keys=yes
+    ssh_key_bits=2048
+    state=present
+```
