@@ -17,3 +17,6 @@ to run this playbook on localhost
 ```
 ansible-playbook -i localhost, playbook.yaml
 there is a docker module to help build docker images
+
+```
+https://docs.ansible.com/ansible/latest/modules/k8s_module.html
