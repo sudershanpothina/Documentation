@@ -38,7 +38,7 @@ ansible-playbook -K site.yml
 
 # if the ansible.conf has not been updated to point the inventry to the hosts file use the following command
 ansible-playbook -i hosts -K site.yml
-# -K is for the sudo password
+# -K is for the sudo password for the machine you are running
 ```
 
 Install multiple packages in the same task
