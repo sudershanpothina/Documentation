@@ -20,3 +20,10 @@ there is a docker module to help build docker images
 
 ```
 https://docs.ansible.com/ansible/latest/modules/k8s_module.html
+
+```
+- name: Read definition file from the Ansible controller file system after Jinja templating
+  k8s:
+    state: present
+    definition: "{{ lookup('template', '/testing/deployment.yml') }}"
+```
