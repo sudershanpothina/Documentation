@@ -41,3 +41,8 @@ Copy contents of a file
     key: {{ lookup('file', 'file path from relative to the project') }}
     state: present
 ```
+getting the host with a script
+the script should return values of in json format
+```
+ansible-playbook -i scripts/inventory.py playbook.yml
+```
