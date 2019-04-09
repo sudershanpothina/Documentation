@@ -27,7 +27,7 @@ Place arguments in multiple lines
     password={{ user_pass }}
     shell=/bin/bash
     groups=sudo
-    append=yes
+    append=yes # group would be added instead of replacing current groups
     generate_ssh_keys=yes
     ssh_key_bits=2048
     state=present
