@@ -29,6 +29,14 @@ ansible1
 ansible2
 spnginx
 ```
+Groups can be created with the following syntax
+```
+[group1]
+ansible1
+ansible2
+[group2]
+ansible1
+spnginx
 make sure you run the following command on all the machines
 ```
 sudo apt install python-minimal python-simplejson
