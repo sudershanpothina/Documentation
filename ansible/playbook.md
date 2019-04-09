@@ -13,7 +13,6 @@ EOF
 ```
 
 Create a playbook
-create a playbook
 ```
 cat << EOF > site.yml
 - hosts: all
@@ -36,6 +35,10 @@ EOF
 Run ansible playbook
 ```
 ansible-playbook -K site.yml
+
+# if the ansible.conf has not been updated to point the inventry to the hosts file use the following command
+ansible-playbook -i hosts -K site.yml
+# -K is for the sudo password
 ```
 
 Install multiple packages in the same task
