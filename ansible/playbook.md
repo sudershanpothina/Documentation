@@ -54,9 +54,38 @@ Copying files, make sure that the files directory is created at the same task le
 - name: "Adding files"
   copy: src=../files/test.txt dest=/tmp/text.txt owner=spothi group=root mode=0644
 ```
+a better way to copy file is to use a jinja2 template. this allows variable substitution
+```
+- name: "Update nginx config"
+  template: src=../files/nginx.conf.j2 dest=/etc/nginx/nginx.conf
+```
 Run shell command
 creates will make sure that the command wont run if the file exists
 ```
 - name: "move files by runnig shell commands"
   shell: creates=/home/spothi/test1.txt mv /home/spothi/test.txt /home/spothi/test1.txt
 ```
+apt get update
+```
+- name: Only run "update_cache=yes" if the last one is more than 3600 seconds ago
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+```
+
+Using variables
+```
+- hosts: group1
+  vars: 
+    test_var: Test value
+  template: src=../files/{{ test_var }} dest=/tmp/{{ test_var }}
+```
+
+using dependencies
+create a meta/main.yml in the roles folders and define the dependencies of the roles there
+```
+dependencies:
+  - basic
+  - nginx
+```
+This reduces the playbook to only have a specific role like say webserver and all the dependencies are installed automatically
