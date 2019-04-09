@@ -29,6 +29,11 @@ ansible1
 ansible2
 spnginx
 ```
+
+Can also specify the user name for the connection as follows 
+```
+ansible1 ansible_user=username
+```
 Groups can be created with the following syntax
 ```
 [group1]
