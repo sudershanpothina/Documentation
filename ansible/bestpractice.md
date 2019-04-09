@@ -6,6 +6,9 @@ roles
   group
   - tasks -> list of tasks to perform in a group
   - handlers -> very simple tasks, like starting a service
+    ex -
+    - name: Restart nginx
+      service: name=nginx state=restarted
   - templates -> jinja2 files
   - files -> files to copy
   - meta -> dependencies on other roles
