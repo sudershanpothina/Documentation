@@ -13,19 +13,29 @@ EOF
 ```
 
 Create a playbook
-create a playbook at the root level of the ansible folder
+create a playbook
 ```
-cat << EOF > playbook.yml
+cat << EOF > site.yml
 - hosts: all
   become: true #become another user
   roles: 
   - basic
 EOF
 ```
-
+create a playbook and run as root user
+```
+cat << EOF > site.yml
+- name: playbook for group1
+  hosts: group1
+  user: root
+  sudo: true
+  roles: 
+  - basic
+EOF
+```
 Run ansible playbook
 ```
-ansible-playbook -K playbook.yml
+ansible-playbook -K site.yml
 ```
 
 Install multiple packages in the same task
