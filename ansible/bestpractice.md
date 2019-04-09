@@ -5,7 +5,7 @@ hosts - list of hosts
 roles
   group
   - tasks -> list of tasks to perform in a group
-  - handlers -> start services
+  - handlers -> very simple tasks, like starting a service
   - templates -> jinja2 files
   - files -> files to copy
   - meta -> dependencies on other roles
