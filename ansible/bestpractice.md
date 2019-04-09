@@ -19,7 +19,7 @@ hostname: test
 ```
 
 
-Place arguments in multiple lines
+Place arguments in multiple lines, the next segment is more prefered
 ```
 - name: Add user details
   user: >
@@ -31,4 +31,13 @@ Place arguments in multiple lines
     generate_ssh_keys=yes
     ssh_key_bits=2048
     state=present
+```
+
+Copy contents of a file
+```
+- name: Copy contents of a cert
+  authorized_key:
+    user: {{ user_name }}
+    key: {{ lookup('file', 'file path from relative to the project') }}
+    state: present
 ```
