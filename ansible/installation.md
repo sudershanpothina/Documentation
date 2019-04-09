@@ -37,10 +37,23 @@ ansible2
 [group2]
 ansible1
 spnginx
+
+```
+Generate sshkey using 
+```
+ssh-keygen
+```
+copy id to every machine
+```
+ssh-copy-id user@machine
+```
+
 make sure you run the following command on all the machines
 ```
 sudo apt install python-minimal python-simplejson
 ```
+
+
 run the following command to check if everything works fine
 ```
 ansible -m ping all
