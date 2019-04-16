@@ -53,6 +53,8 @@ apt-get update
 apt-get install ansible -y
 cp -r /etc/ansible ansible_workspace
 ```
+### uncomment gather_timeout = 100 # if there are timeouts when logging in
+
 make sure you add the ssh public id's to the root user (makes it easy for rest )
 
 Use the playbook method to run as sudo
