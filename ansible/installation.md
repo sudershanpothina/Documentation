@@ -49,6 +49,7 @@ Generate sshkey using
 ssh-keygen
 ```
 copy id to every machine
+the better way to do it is login to the machine and copy the id in the root authorized keys
 ```
 ssh-copy-id user@machine
 ```
