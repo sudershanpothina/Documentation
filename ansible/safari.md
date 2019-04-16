@@ -59,7 +59,7 @@ Use the playbook method to run as sudo
 - hosts: all
   gather_facts: False # required for installing python 2
   remote_user: ubuntu
-  become: yes
+  become: yes # esclates the permission, become user will not do this
   become_user: root
   become_method: sudo
 
