@@ -20,6 +20,7 @@ sudo lxc-start -n bashy -d
 # do an ls to get the machine name 
 # can just ssh into the machine
 # default user and pass is ubuntu
+https://www.digitalocean.com/community/tutorials/how-to-create-a-sudo-user-on-ubuntu-quickstart
 
 # you can attach to a container shell 
 lxc-attach -n bashy
