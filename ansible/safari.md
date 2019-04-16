@@ -104,11 +104,14 @@ NGINX
         dest: "/etc/nginx/conf.d/ {{ site_name }}.conf"
       notify:
       - restart nginx
+      - wait for sometime # wait handler 
   handlers:
     - name: restart nginx
       service:
         name: nginx
         state: restarted
+   - name: wait for sometime
+     wait_for: timeout=10
 ---
 # templates website.conf
 server {
