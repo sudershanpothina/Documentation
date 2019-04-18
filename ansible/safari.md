@@ -55,7 +55,7 @@ cp -r /etc/ansible ansible_workspace
 ```
 ### uncomment gather_timeout = 100 # if there are timeouts when logging in
 ### make sure you do pip install as the same user as what ansible is logging in 
-### use -vvv for verbose
+### use -vvv for verbose, there are more levels of verbose
 
 make sure you add the ssh public id's to the root user (makes it easy for rest )
 
@@ -227,4 +227,12 @@ tasks:
    file:
      state: absent
      path: "{{ temp_file_path }}" 
+```
+pass vaiables from command line
+```
+ansible-playbook playbook.yaml -e "var1=var1_value var2=var2_value"
+
+vars:
+  variable1: "{{ lookup('env', 'var1') }}"
+  variable2: "{{ lookup('env', 'var2') }}"
 ```
