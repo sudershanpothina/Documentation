@@ -157,3 +157,48 @@ http {
 
 ```
 
+run scripts locally, loop through items and check value of previous task
+```
+- hosts: 127.0.0.1 # run on the local host, still need to pass --connection=local
+   become: no
+   # USAGE: ansible-playbook create_playbook.yml --connection=local
+   vars:
+     playbook_name: ansibleskeleton
+     location: /tmp/{{ playbook_name }}
+     roles: ["web", "database", "common"]
+
+   tasks:
+     - name: Check if playbook already exists
+       stat: path={{ location }}
+       register: playbook_directory
+
+     - name: Create playbook directory
+       file: path={{ item }} state=directory
+       when: playbook_directory.stat.exists == False
+       with_items:
+         - "{{ location }}"
+         - "{{ location }}/group_vars"
+         - "{{ location }}/roles"
+
+     - name: Create playbook files
+       file: path={{ item }} state=touch
+       with_items:
+         - "{{ location }}/group_vars/all"
+         - "{{ location }}/{{ playbook_name }}.yml"
+```
+loop through dictionary, the value 
+```
+- name: copy tomcat config files
+  template: src="{{ item.src }}" dest="{{ item.dest }}"
+  with_items:
+    - { src: 'context.xml.j2', dest: '/opt/tomcat/conf/context.xml'}
+```
+lineinfile - to replace a line in a file
+refer to examples here
+https://docs.ansible.com/ansible/latest/modules/lineinfile_module.html
+
+lineinblock is to replace a blovk
+
+get_url is to download the content to a file path
+
+
