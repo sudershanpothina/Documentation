@@ -203,4 +203,28 @@ lineinblock is to replace a blovk
 
 get_url is to download the content to a file path
 
-
+get python path that ansible is using
+```
+vars:
+  ansible_python_interpreter: '{{ ansible_playbook_python }}'
+tasks:
+  - name: Print the config
+    debug:
+      msg: "{{ ansible_python_interpreter }}"
+ ```
+ create temp data and write data and delete
+ ```
+ - name: create temp file
+      tempfile:
+        state: file
+        suffix: something
+      register: temp_file_path
+ - name: write data to file
+   copy:
+     content: "{{ some content from vars }}"
+     dest: "{{ temp_file_path }}"
+ - name: delete temp file
+   file:
+     state: absent
+     path: "{{ temp_file_path }}" 
+```
