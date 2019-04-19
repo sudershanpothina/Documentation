@@ -236,3 +236,44 @@ vars:
   variable1: "{{ lookup('env', 'var1') }}"
   variable2: "{{ lookup('env', 'var2') }}"
 ```
+kubernetes with vault integration
+```
+- hosts: 127.0.0.1
+  connection: local
+  become: yes
+  become_user: root
+  become_method: sudo
+  vars:
+    vault_token: "{{ 'secret=utility/kubernetes token='+ token +' url=https://vaulturl validate_certs=False' }}"
+    config: "{{ lookup('hashi_vault', vault_token)}}"
+    create: "{{ lookup('env', 'create') }}"
+    ansible_python_interpreter: '{{ ansible_playbook_python }}'
+    image_name: "local-docker.dhpazrepold0001.centralus.cloudapp.azure.com/dhptest-image/feedback:latest"
+  tasks:
+    - name: create temp file
+      tempfile:
+        state: file
+        suffix: k_config
+      register: k_config
+    - name: write data to file
+      copy:
+        content: "{{ config.low_kube_config }}"
+        dest: "{{ k_config.path }}"
+    - name: create ns
+      k8s:
+        state: "{{ create }}"
+        name: test-namespace
+        kind: Namespace
+        api_version: v1
+        kubeconfig: "{{ k_config.path }}"
+    - name: create deployment
+      k8s:
+        state: "{{ create }}"
+        namespace: test-namespace
+        definition: "{{ lookup('template', 'feedback.yaml') }}"
+        kubeconfig: "{{ k_config.path }}"
+    - name: delete temp file
+      file:
+        state: absent
+        path: "{{ k_config.path }}"
+   ```
