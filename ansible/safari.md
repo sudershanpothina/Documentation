@@ -277,3 +277,23 @@ kubernetes with vault integration
         state: absent
         path: "{{ k_config.path }}"
    ```
+deployment file, can have multiple objects and will know the state and update if the file changes
+```
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: feedback
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: feedback
+    spec:
+      containers:
+      - name: feedback
+        image: "{{ image_name }}"
+        ports:
+        - containerPort: 9090
+          name: feedback-port
+```
