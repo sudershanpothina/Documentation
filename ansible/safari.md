@@ -248,7 +248,7 @@ kubernetes with vault integration
     config: "{{ lookup('hashi_vault', vault_token)}}"
     create: "{{ lookup('env', 'create') }}"
     ansible_python_interpreter: '{{ ansible_playbook_python }}'
-    image_name: "local-docker.dhpazrepold0001.centralus.cloudapp.azure.com/dhptest-image/feedback:latest"
+    image_name: "feedback:latest"
   tasks:
     - name: create temp file
       tempfile:
