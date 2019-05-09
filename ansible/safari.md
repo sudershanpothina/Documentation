@@ -27,7 +27,7 @@ lxc-attach -n bashy
 passwd ubuntu
 apt install openssh-server -y
 apt-get install python-minimal --no-install-recommends -y
-apt-get install sudo python-minimal python-setuptools
+apt-get install sudo python-minimal python-setuptools -y
 
 # create new user 
 adduser username
