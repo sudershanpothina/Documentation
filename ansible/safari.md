@@ -297,3 +297,5 @@ spec:
         - containerPort: 9090
           name: feedback-port
 ```
+Install awx
+https://dzone.com/articles/install-ansible-on-ubuntu-1804-with-awx
