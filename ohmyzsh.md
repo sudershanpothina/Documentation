@@ -12,3 +12,7 @@ install ohmyzsh brings in templates
 ```
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
+follow instructions on this site for plugins and themes
+```
+https://medium.com/wearetheledger/oh-my-zsh-made-for-cli-lovers-installation-guide-3131ca5491fb
+```
