@@ -8,3 +8,9 @@ Pipe
 
 Shell
 - use chmod 755 to add executable permission to a shell file
+
+Change the order of boot in multi boot
+- change the order in /boot/grub/grub.cfg and run 
+```
+update-grub
+```
