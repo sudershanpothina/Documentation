@@ -14,3 +14,13 @@ Change the order of boot in multi boot
 ```
 update-grub
 ```
+
+always run the following to keep the system and the distribution of OS upto date
+```
+sudo apt-get update 
+sudo apt-get dist-upgrade
+```
+remove package
+```
+sudo apt-get purge <packagename>
+```
